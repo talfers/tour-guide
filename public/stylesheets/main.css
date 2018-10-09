@@ -1,0 +1,360 @@
+/*GENERAL STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*these styles will rule out all other browers margins, etc*/
+}
+
+html {
+    font: normal 16px sans-serif;
+    color: #555;
+}
+
+ul, nav {
+    list-style: none;
+    /*no bullets on lists*/
+}
+
+a {
+    text-decoration: none;
+    /*weird decor on links is gone*/
+    opacity: 0.75;
+    color: #fff;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+a.btn {
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    background-color: #3f51b5;
+    opacity: 1;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 80px;
+}
+
+section:not(.hero):nth-child(even) {
+    /*for every other, NOT class hero... interesting*/
+    background-color: #f5f5f5;
+}
+
+.grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+hr {
+    width: 250px;
+    height: 3px;
+    background-color: #3f51b5;
+    border: 0;
+    margin-bottom: 50px;
+}
+
+section h3.title {
+    text-transform: capitalize;
+    font: bold 32px "Open Sans", sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+section p {
+    max-width: 775px;
+    line-height: 2;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/*so that there's less margin on mobile*/
+@media (max-width: 800px) {
+    section {
+        padding: 50px 20px;
+    }
+}
+
+/*HEADER STYLES*/
+header {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 100px 0;
+    animation: 1s fadein 0.5s forwards;
+    opacity: 0;
+}
+
+
+/*fadein content on load*/
+@keyframes fadein {
+    100% {
+        opacity: 1;
+    }
+}
+
+header h2 {
+    font-family: "Quicksand", sans-serif;
+}
+
+header nav {
+    display: flex;
+    margin-right: -15px;
+}
+
+header nav li {
+    margin: 0 15px;
+}
+
+/*less padding and column layout for header/nav on mobile*/
+@media (max-width: 800px) {
+    header {
+        padding: 20px 50px;
+        flex-direction: column;
+        /*puts header above all the links and centered*/
+    }
+    header h2 {
+        margin-bottom: 15px;
+    }
+}
+
+
+/*HERO STYLES*/
+
+.hero {
+    color: #fff;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.hero .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+    background-color: #80a3db
+    /*so when loading it isn't white*/
+}
+
+.hero h1 {
+    font: bold 60px "Open Sans", sans-serif;
+    margin-bottom: 15px;
+}
+
+.hero h3 {
+    font: 28px "Open Sans", sans-serif;
+    margin-bottom: 40px;
+}
+
+.hero a.btn {
+    padding: 20px 46px;
+}
+
+/*animation for hero content on load*/
+.hero-content-area {
+    opacity: 0;
+    margin-top: 100px;
+    /*to push it down before animating*/
+    animation: 1s slidefade 1s forwards;
+}
+
+@keyframes slidefade {
+    100% {
+        opacity: 1;
+        margin: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    /*reduce height from 100vh to 600px (standard)*/
+    .hero {
+        min-height: 600px;
+    }
+    /*reduce font size for h's and button size*/
+    .hero h1 {
+        font-size: 48px;
+    }
+    .hero h3 {
+        font-size: 24px;
+    }
+    .hero a.btn {
+        padding: 15px 40px;
+    }
+}
+
+/*DESTINATION STYLES*/
+.destinations .grid li {
+    height: 350px;
+    padding: 20px;
+    background-clip: content-box;
+    /*reserves padding for white space (clips at content area)*/
+    background-size: cover;
+    /*image covers the content area*/
+    background-position: center;
+    /*centers the background image*/
+}
+
+.destinations .grid li.small {
+    flex-basis: 40%;
+}
+
+.destinations .grid li.large {
+    flex-basis: 60%;
+}
+
+/*2 standard breakpoints, 1100px and */
+/*make all images flex-basis 50% when under 110px (pad?)*/
+@media (max-width: 1100px) {
+    /*all large and small images have flex-basis of 50%*/
+    /*SO THAT images are in twos on tablet*/
+    .destinations .grid li.small,
+    .destinations .grid li.large {
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 800px) {
+    /*all large and small images have flex-basis of 100%*/
+    /*NOW all images are all one column line for mobile*/
+    .destinations .grid li.small,
+    .destinations .grid li.large {
+        flex-basis: 100%;
+    }
+}
+
+
+/*PACKAGES STYLING*/
+
+.packages .grid li {
+    padding: 50px;
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.packages .grid li i {
+    color: #8c9eff;
+}
+
+.packages .grid li h4 {
+    font-size: 30px;
+    margin: 25px 0;
+}
+
+@media (max-width: 800px) {
+    /*give each package 100% of screen using flex-basis*/
+    .packages {
+        flex-basis: 100%;
+        padding: 20px;
+    }
+}
+
+/*TESTIMONIALS STYLES*/
+
+.testimonials .quote {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 40px 0 25px;
+}
+
+@media (max-width: 800px) {
+    /*reduce font, margin for quotes. And font for author on mobile screens*/
+    .testimonials .quote {
+        font-size: 18px;
+        margin: 15px 0;
+    }
+    .testimonials .author {
+        font-size: 14px;
+    }
+}
+
+/*CONTACT STYLES*/
+
+.contact form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+}
+
+.contact form .btn {
+    padding: 18px 42px;
+}
+
+.contact form input {
+    padding: 15px;
+    margin-right: 30px;
+    font-size: 18px;
+    color: #555;
+    flex: 1;
+    /*insure input takes all avaliable space*/
+}
+
+@media (max-width: 1000px) {
+    /*let input take all space and remove margin at small screens*/
+    .contact form input {
+        flex-basis: 100%;
+        margin: 0 0 20px 0;
+    }
+}
+
+/*FOOTER STYLES*/
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #607d8b;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer ul li {
+    margin-left: 16px;
+}
+
+footer p {
+    text-transform: uppercase;
+    font-size: 14px;
+    opacity: 0.6;
+    align-self: center;
+}
+
+@media (max-width: 1100px) {
+    /*turn footer to column at small screens*/
+    footer {
+        flex-direction: column;
+    }
+    /*align items in p and give bottom margin*/
+    footer p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    /*give margin to all soc-med elements*/
+    footer ul li {
+        margin: 0 8px;
+    }
+}
