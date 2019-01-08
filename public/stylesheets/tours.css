@@ -1,0 +1,111 @@
+/*HERO-TOUR STYLES*/
+
+.hero-tours {
+    color: #fff;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh;
+}
+
+.hero-tours .banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: bottom;
+    background-color: #80a3db;
+    z-index: -1;
+}
+
+.hero-tours h1 {
+    font: bold 60px "Open Sans", sans-serif;
+    margin-bottom: 15px;
+}
+
+.hero-tours h3 {
+    font: 28px "Open Sans", sans-serif;
+    margin-bottom: 40px;
+}
+
+.hero-tours a.btn {
+    padding: 20px 46px;
+}
+
+/*TOURS STYLES*/
+
+.tours .grid li {
+    flex: 1 1;
+    height: 350px;
+    height: 350px;
+    padding: 8px;
+    background-clip: content-box;
+    /*reserves padding for white space (clips at content area)*/
+    background-size: cover;
+    /*image covers the content area*/
+    background-position: center;
+    /*centers the background image*/
+}
+
+.tours .grid li.small {
+    flex-basis: 40%;
+}
+
+.tours .grid li.large {
+    flex-basis: 60%;
+}
+
+@media (max-width: 1100px) {
+    .tours .grid li.small {
+        flex-basis: 50%;
+    }
+    .tours .grid li.large {
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 800px){
+    .tours .grid li.small {
+        flex-basis: 100%;
+    }
+    .tours .grid li.large {
+        flex-basis: 100%;
+    }
+}
+
+/*CONTACT STYLES*/
+.contact-tours {
+    color: #fff;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh;
+}
+
+.contact-tours .banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #80a3db;
+    z-index: -1;
+}
+
+.contact-tours h1 {
+    font: bold 60px "Open Sans", sans-serif;
+    margin-bottom: 15px;
+}
+
+.contact-tours h3 {
+    font: 28px "Open Sans", sans-serif;
+    margin-bottom: 40px;
+}
+
+.contact-tours a.btn {
+    padding: 20px 46px;
+}
